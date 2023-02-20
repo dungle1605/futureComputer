@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FutureComputer.Domain\FutureComputer.Domain.csproj" />
+    <ProjectReference Include="..\FutureComputer.Infrastructure\FutureComputer.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

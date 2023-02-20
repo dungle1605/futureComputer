@@ -7,7 +7,6 @@ namespace FutureComputer.Infrastructure.Domain;
 
 public class EFRepositoryBase<T> : IRepository<T>, IReadRepository<T> where T : class, IAggregateRoot
 {
-    private const int COMMAND_TIMEOUT_SECONDS = 3600;
     private readonly DbContext _dbContext;
     private readonly ISpecificationEvaluator _specificationEvaluator;
 
