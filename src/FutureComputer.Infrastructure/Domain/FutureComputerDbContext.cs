@@ -35,5 +35,9 @@ public class FutureComputerDbContext : DbContext
         }
 
         modelBuilder.ApplyConfiguration(new AddressConfiguration());
+        modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+        modelBuilder.ApplyConfiguration(new CompanyInfoConfiguration());
+        modelBuilder.ApplyConfiguration(new ProductConfiguration());
+        modelBuilder.ApplyConfiguration(new CustomerConfiguration());
     }
 }
