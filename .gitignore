@@ -6,3 +6,6 @@ src/FutureComputer.Domain/bin
 src/FutureComputer.Domain/obj
 src/FutureComputer.Infrastructure/bin
 src/FutureComputer.Infrastructure/obj
+
+*.cache
+*.editorconfig
