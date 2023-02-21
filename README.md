@@ -1,4 +1,4 @@
-# enbale dotnet-ef cmd for using the below cmd
+# enable dotnet-ef cmd for using the below cmd
 
 dotnet tool install --global dotnet-ef
 
