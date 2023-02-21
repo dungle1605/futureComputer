@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutureComputer.Domain", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutureComputer.Infrastructure", "src\FutureComputer.Infrastructure\FutureComputer.Infrastructure.csproj", "{0CA61F4A-9A67-4C6B-BEA2-ABAB34A9BF44}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C6130AE0-7C80-4F6A-9AB4-42715433A1EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutureComputer.Application.UnitTest", "tests\FutureComputer.Application.UnitTest\FutureComputer.Application.UnitTest.csproj", "{B8D2AD15-BF72-4AE7-A96F-CCA9A5D38E54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,11 +42,16 @@ Global
 		{0CA61F4A-9A67-4C6B-BEA2-ABAB34A9BF44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CA61F4A-9A67-4C6B-BEA2-ABAB34A9BF44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CA61F4A-9A67-4C6B-BEA2-ABAB34A9BF44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D2AD15-BF72-4AE7-A96F-CCA9A5D38E54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D2AD15-BF72-4AE7-A96F-CCA9A5D38E54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D2AD15-BF72-4AE7-A96F-CCA9A5D38E54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D2AD15-BF72-4AE7-A96F-CCA9A5D38E54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9BC273A4-60DA-4D26-99EB-3567E595BED6} = {07E73165-D79F-4B52-95F6-F9B90A874050}
 		{3119509C-8693-4ED4-B0EB-5900CCE2BDF3} = {07E73165-D79F-4B52-95F6-F9B90A874050}
 		{F1BA15E6-02D5-4018-B9CB-B176D7D8612C} = {07E73165-D79F-4B52-95F6-F9B90A874050}
 		{0CA61F4A-9A67-4C6B-BEA2-ABAB34A9BF44} = {07E73165-D79F-4B52-95F6-F9B90A874050}
+		{B8D2AD15-BF72-4AE7-A96F-CCA9A5D38E54} = {C6130AE0-7C80-4F6A-9AB4-42715433A1EF}
 	EndGlobalSection
 EndGlobal
