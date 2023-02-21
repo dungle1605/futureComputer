@@ -1,0 +1,317 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Projects\\ASP.NET\\FutureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj": {}
+  },
+  "projects": {
+    "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj",
+        "projectName": "FutureComputer.Application",
+        "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj",
+        "packagesPath": "C:\\Users\\tiendung.le_amaris\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tiendung.le_amaris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj": {
+                "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj"
+              },
+              "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj": {
+                "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Ardalis.Specification": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.2.2, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.5.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj",
+        "projectName": "FutureComputer.Domain",
+        "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj",
+        "packagesPath": "C:\\Users\\tiendung.le_amaris\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tiendung.le_amaris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Ardalis.Specification": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj",
+        "projectName": "FutureComputer.Infrastructure",
+        "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\tiendung.le_amaris\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tiendung.le_amaris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj": {
+                "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Ardalis.Specification.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\ASP.NET\\FutureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\ASP.NET\\FutureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj",
+        "projectName": "FutureComputer.Application.UnitTest",
+        "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj",
+        "packagesPath": "C:\\Users\\tiendung.le_amaris\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\ASP.NET\\FutureComputer\\tests\\FutureComputer.Application.UnitTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tiendung.le_amaris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj": {
+                "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.4.1, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.4, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
