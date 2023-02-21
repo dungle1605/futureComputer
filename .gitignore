@@ -9,9 +9,6 @@ src/FutureComputer.Infrastructure/obj
 
 *.cache
 *.editorconfig
-.suo
-.vs/FutureComputer/FileContentIndex/31f5847b-0f05-471f-aad8-92b9534c14de.vsidx
-.vs/FutureComputer/FileContentIndex/9a49d39a-2cc5-4292-b0ae-544341dd6627.vsidx
-.vs/FutureComputer/FileContentIndex/ceb1a071-332b-4dfe-8abf-63c9d02b8563.vsidx
-.vs/FutureComputer/FileContentIndex/eb1b3aa7-6e14-4a88-a34b-17613bfc4d6d.vsidx
+*.suo
+*.vsidx
 .vs/FutureComputer/FileContentIndex/read.lock
