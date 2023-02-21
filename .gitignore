@@ -6,6 +6,10 @@ src/FutureComputer.Domain/bin
 src/FutureComputer.Domain/obj
 src/FutureComputer.Infrastructure/bin
 src/FutureComputer.Infrastructure/obj
+obj
+
+tests/FutureComputer.Application.UnitTest/obj
+tests/FutureComputer.Application.UnitTest/bin
 
 *.cache
 *.editorconfig
