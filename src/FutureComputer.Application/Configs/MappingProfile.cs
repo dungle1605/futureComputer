@@ -10,7 +10,7 @@ public class MappingProfile<T, TResult> where T : class
     {
         var config = new MapperConfiguration(cfg =>
         {
-            cfg.AddProfile(new MappingProfileConfig());
+            cfg.AddProfile(new MappingProfileConfig<T, TResult>());
         });
 
         var mapper = config.CreateMapper();
