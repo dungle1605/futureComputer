@@ -11,16 +11,17 @@ namespace FutureComputer.Infrastructure.Domain.Config
 {
     public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
     {
-        public void Configure(EntityTypeBuilder<Customer> builder) {
+        public void Configure(EntityTypeBuilder<Customer> builder)
+        {
 
             builder.Property(a => a.Name)
-                .IsRequired(false);
+                .IsRequired(true);
 
             builder.Property(a => a.Email)
                 .IsRequired(true);
 
             builder.Property(a => a.Dob)
-                .IsRequired(false);
+                .IsRequired(true);
 
             builder.Property(a => a.PhoneNumber)
                 .IsRequired(false);
@@ -33,9 +34,6 @@ namespace FutureComputer.Infrastructure.Domain.Config
 
             builder.Property(a => a.IsAvailable)
                 .HasDefaultValue(true);
-
-            builder.Property(a => a.Addresses)
-                .IsRequired(false);
         }
     }
 }

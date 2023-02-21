@@ -10,4 +10,6 @@ public class Product : BaseAuditableEntity, IAggregateRoot
     public int Quantity { get; set; }
     public string Description { get; set; }
     public bool IsDeleted { get; set; }
+    public Guid CategoryId { get; set; }
+    public Category Category { get; set; }
 }
