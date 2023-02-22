@@ -29,7 +29,7 @@ public class ProductsController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet("{id:guid}}")]
+    [HttpGet("{id:guid}")]
     [ProducesResponseType(typeof(ProductResponse), (int)HttpStatusCode.OK)]
     [ProducesResponseType(typeof(ProblemDetailsSwaggerResponse), (int)HttpStatusCode.BadRequest)]
     public async Task<IActionResult> GetProductById([FromRoute] Guid id)
