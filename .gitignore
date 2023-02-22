@@ -11,10 +11,12 @@ obj
 tests/FutureComputer.Application.UnitTest/obj
 tests/FutureComputer.Application.UnitTest/bin
 
-**/Migrations
+tests/FutureComputer.API.IntegrationTests/obj
+tests/FutureComputer.API.IntegrationTests/bin
+
+*.vs
+*.vscode
 *.cache
 *.editorconfig
 *.suo
 *.vsidx
-.vs/FutureComputer/FileContentIndex/read.lock
-
