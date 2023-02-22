@@ -6,7 +6,6 @@ d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\bin
 d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\bin\Debug\net6.0\FutureComputer.Application.UnitTest.deps.json
 d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\bin\Debug\net6.0\FutureComputer.Application.UnitTest.runtimeconfig.json
 d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\bin\Debug\net6.0\FutureComputer.Application.UnitTest.dll
-d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\bin\Debug\net6.0\FutureComputer.Application.UnitTest.pdb
 d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\bin\Debug\net6.0\Ardalis.Specification.dll
 d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\bin\Debug\net6.0\Ardalis.Specification.EntityFrameworkCore.dll
 d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\bin\Debug\net6.0\AutoMapper.dll
@@ -145,7 +144,6 @@ d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\obj
 d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\obj\Debug\net6.0\FutureComputer.Application.UnitTest.csproj.CopyComplete
 d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\obj\Debug\net6.0\FutureComputer.Application.UnitTest.dll
 d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\obj\Debug\net6.0\refint\FutureComputer.Application.UnitTest.dll
-d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\obj\Debug\net6.0\FutureComputer.Application.UnitTest.pdb
 d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\obj\Debug\net6.0\FutureComputer.Application.UnitTest.genruntimeconfig.cache
 d:\Projects\ASP.NET\FutureComputer\tests\FutureComputer.Application.UnitTest\obj\Debug\net6.0\ref\FutureComputer.Application.UnitTest.dll
 C:\Users\Jay\Documents\GitHub\futureComputer\tests\FutureComputer.Application.UnitTest\bin\Debug\net6.0\testhost.exe
