@@ -93,7 +93,7 @@ namespace FutureComputer.Infrastructure.Migrations
                     b.Property<bool>("IsAvailable")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
-                        .HasDefaultValue(false);
+                        .HasDefaultValue(true);
 
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("datetime2");

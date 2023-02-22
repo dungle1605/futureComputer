@@ -7,8 +7,10 @@ src/FutureComputer.Domain/obj
 src/FutureComputer.Infrastructure/bin
 src/FutureComputer.Infrastructure/obj
 
+**/Migrations
 *.cache
 *.editorconfig
 *.suo
 *.vsidx
 .vs/FutureComputer/FileContentIndex/read.lock
+

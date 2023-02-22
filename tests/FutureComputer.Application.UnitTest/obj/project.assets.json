@@ -2594,7 +2594,8 @@
           "FutureComputer.Domain": "1.0.0",
           "FutureComputer.Infrastructure": "1.0.0",
           "MediatR": "11.1.0",
-          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0"
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0",
+          "Newtonsoft.Json": "13.0.1"
         },
         "compile": {
           "bin/placeholder/FutureComputer.Application.dll": {}
@@ -7730,19 +7731,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tiendung.le_amaris\\.nuget\\packages\\": {}
+    "C:\\Users\\Jay\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\ASP.NET\\FutureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj",
+      "projectUniqueName": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj",
       "projectName": "FutureComputer.Application.UnitTest",
-      "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj",
-      "packagesPath": "C:\\Users\\tiendung.le_amaris\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\ASP.NET\\FutureComputer\\tests\\FutureComputer.Application.UnitTest\\obj\\",
+      "projectPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj",
+      "packagesPath": "C:\\Users\\Jay\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\tests\\FutureComputer.Application.UnitTest\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\tiendung.le_amaris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7756,8 +7762,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj": {
-              "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj"
+            "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj": {
+              "projectPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj"
             }
           }
         }
@@ -7807,7 +7813,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

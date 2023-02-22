@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\ASP.NET\\FutureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj": {}
+    "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj": {
+    "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj",
         "projectName": "FutureComputer.Application",
-        "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj",
-        "packagesPath": "C:\\Users\\tiendung.le_amaris\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\obj\\",
+        "projectPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj",
+        "packagesPath": "C:\\Users\\Jay\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tiendung.le_amaris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +32,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj": {
-                "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj"
+              "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj": {
+                "projectPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj"
               },
-              "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj": {
-                "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj"
+              "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj"
               }
             }
           }
@@ -74,6 +78,10 @@
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[11.1.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             }
           },
           "imports": [
@@ -92,21 +100,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj": {
+    "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj",
         "projectName": "FutureComputer.Domain",
-        "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj",
-        "packagesPath": "C:\\Users\\tiendung.le_amaris\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj",
+        "packagesPath": "C:\\Users\\Jay\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tiendung.le_amaris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -153,21 +165,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj": {
+    "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj",
         "projectName": "FutureComputer.Infrastructure",
-        "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\tiendung.le_amaris\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Infrastructure\\FutureComputer.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Jay\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tiendung.le_amaris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -181,8 +197,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj": {
-                "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj"
+              "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj": {
+                "projectPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Domain\\FutureComputer.Domain.csproj"
               }
             }
           }
@@ -230,21 +246,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projects\\ASP.NET\\FutureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj": {
+    "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\ASP.NET\\FutureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj",
+        "projectUniqueName": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj",
         "projectName": "FutureComputer.Application.UnitTest",
-        "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj",
-        "packagesPath": "C:\\Users\\tiendung.le_amaris\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\ASP.NET\\FutureComputer\\tests\\FutureComputer.Application.UnitTest\\obj\\",
+        "projectPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\tests\\FutureComputer.Application.UnitTest\\FutureComputer.Application.UnitTest.csproj",
+        "packagesPath": "C:\\Users\\Jay\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\tests\\FutureComputer.Application.UnitTest\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tiendung.le_amaris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -258,8 +278,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj": {
-                "projectPath": "D:\\Projects\\ASP.NET\\FutureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj"
+              "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj": {
+                "projectPath": "C:\\Users\\Jay\\Documents\\GitHub\\futureComputer\\src\\FutureComputer.Application\\FutureComputer.Application.csproj"
               }
             }
           }
@@ -309,7 +329,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

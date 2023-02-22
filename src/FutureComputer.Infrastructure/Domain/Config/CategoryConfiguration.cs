@@ -17,7 +17,7 @@ namespace FutureComputer.Infrastructure.Domain.Config
                 .IsRequired(true);
 
             builder.Property(a => a.IsAvailable)
-                .HasDefaultValue(false);
+                .HasDefaultValue(true);
         }
     }
 }

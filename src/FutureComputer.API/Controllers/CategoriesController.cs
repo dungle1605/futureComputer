@@ -1,6 +1,8 @@
 ﻿using FutureComputer.API.Configuration.Exceptions;
 using FutureComputer.Application.Categories.Common;
+using FutureComputer.Application.Categories.CreateCategory;
 using FutureComputer.Application.Categories.GetAllCategories;
+using FutureComputer.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -26,6 +28,13 @@ namespace FutureComputer.API.Controllers
             var query = new GetAllCategoriesQuery();
             var result = await _mediator.Send(query);
 
+            return Ok(result);
+        }
+
+        [HttpPost("create-category")]
+        public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryCommand command)
+        {
+            var result = await _mediator.Send(command); 
             return Ok(result);
         }
     }

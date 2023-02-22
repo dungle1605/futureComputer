@@ -6,7 +6,7 @@ using MediatR;
 
 namespace FutureComputer.Application.Categories.GetAllCategories
 {
-    public class GetAllCategoriesQueryHandler : IRequestHandler<GetAllCategoriesQuery, List<CategoryResponse>>
+    public class GetAllCategoriesQueryHandler : IRequestHandler <GetAllCategoriesQuery, List<CategoryResponse>>
     {
         private readonly IRepository<Category> _repository;
         private readonly MappingProfile<Category, CategoryResponse> _mapper;
