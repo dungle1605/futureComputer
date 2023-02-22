@@ -3,6 +3,7 @@ using FutureComputer.Application.Categories.Common;
 using FutureComputer.Application.Categories.CreateCategory;
 using FutureComputer.Application.Categories.GetAllCategories;
 using FutureComputer.Application.Categories.GetCategoryById;
+using FutureComputer.Application.Categories.UpdateCategory;
 using FutureComputer.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -46,6 +47,13 @@ namespace FutureComputer.API.Controllers
         public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryCommand command)
         {
             var result = await _mediator.Send(command); 
+            return Ok(result);
+        }
+
+        [HttpPut("update-category")]
+        public async Task<IActionResult> UpdateCategory([FromBody] UpdateCategoryCommand command)
+        {
+            var result = await _mediator.Send(command);
             return Ok(result);
         }
     }
