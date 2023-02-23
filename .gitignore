@@ -14,8 +14,8 @@ tests/FutureComputer.Application.UnitTest/bin
 tests/FutureComputer.API.IntegrationTests/obj
 tests/FutureComputer.API.IntegrationTests/bin
 
-*.vs
-*.vscode
+.vs/*
+.vscode/*
 *.cache
 *.editorconfig
 *.suo
