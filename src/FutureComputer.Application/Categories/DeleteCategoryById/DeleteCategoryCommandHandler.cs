@@ -8,24 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FutureComputer.Application.Categories.UpdateCategory
+namespace FutureComputer.Application.Categories.DeleteCategoryById
 {
-    public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand>
+    public class DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryCommand>
     {
         private readonly IRepository<Category> _repository;
-
-        public UpdateCategoryCommandHandler(IRepository<Category> repository)
+        public DeleteCategoryCommandHandler(IRepository<Category> repository)
         {
             _repository = repository;
         }
 
-        public async Task<Unit> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
         {
-            var filter = new UpdateCategorySpecification(request.Id);
+            var filter = new DeleteCategorySpecification(request.Id);
             var category = await _repository.FirstOrDefaultAsync(filter);
             if (category != null)
             {
-                category.Name = request.Name ?? category.Name;
+                category.IsAvailable = false;
                 await _repository.UpdateAsync(category);
                 await _repository.SaveChangesAsync();
             }
