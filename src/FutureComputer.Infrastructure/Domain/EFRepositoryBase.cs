@@ -69,7 +69,7 @@ public class EFRepositoryBase<T> : IRepository<T>, IReadRepository<T> where T : 
 
     public async Task<T?> FirstOrDefaultAsync(ISpecification<T> specification, CancellationToken cancellationToken = default)
     {
-        return await ApplySpecification(specification).FirstOrDefaultAsync(cancellationToken);
+        return await ApplySpecification(specification).AsNoTracking().FirstOrDefaultAsync(cancellationToken);
     }
 
     public async Task<TResult?> FirstOrDefaultAsync<TResult>(ISpecification<T, TResult> specification, CancellationToken cancellationToken = default)
@@ -94,12 +94,12 @@ public class EFRepositoryBase<T> : IRepository<T>, IReadRepository<T> where T : 
 
     public async Task<List<T>> ListAsync(CancellationToken cancellationToken = default)
     {
-        return await _dbContext.Set<T>().ToListAsync(cancellationToken);
+        return await _dbContext.Set<T>().AsNoTracking().ToListAsync(cancellationToken);
     }
 
     public async Task<List<T>> ListAsync(ISpecification<T> specification, CancellationToken cancellationToken = default)
     {
-        var queryResult = await ApplySpecification(specification).ToListAsync(cancellationToken);
+        var queryResult = await ApplySpecification(specification).AsNoTracking().ToListAsync(cancellationToken);
 
         return specification.PostProcessingAction == null ? queryResult : specification.PostProcessingAction(queryResult).ToList();
     }
@@ -117,7 +117,7 @@ public class EFRepositoryBase<T> : IRepository<T>, IReadRepository<T> where T : 
 
     public async Task<T?> SingleOrDefaultAsync(ISingleResultSpecification<T> specification, CancellationToken cancellationToken = default)
     {
-        return await ApplySpecification(specification).SingleOrDefaultAsync(cancellationToken);
+        return await ApplySpecification(specification).AsNoTracking().SingleOrDefaultAsync(cancellationToken);
     }
 
     public async Task<TResult?> SingleOrDefaultAsync<TResult>(ISingleResultSpecification<T, TResult> specification, CancellationToken cancellationToken = default)

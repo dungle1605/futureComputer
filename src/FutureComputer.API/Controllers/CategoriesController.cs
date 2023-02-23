@@ -1,6 +1,7 @@
 ﻿using FutureComputer.API.Configuration.Exceptions;
 using FutureComputer.Application.Categories.Common;
 using FutureComputer.Application.Categories.CreateCategory;
+using FutureComputer.Application.Categories.DeleteCategoryById;
 using FutureComputer.Application.Categories.GetAllCategories;
 using FutureComputer.Application.Categories.GetCategoryById;
 using FutureComputer.Application.Categories.UpdateCategory;
@@ -56,5 +57,12 @@ namespace FutureComputer.API.Controllers
             var result = await _mediator.Send(command);
             return Ok(result);
         }
+
+        [HttpDelete("delete-category")]
+        public async Task<IActionResult> DeleteCategory([FromBody] DeleteCategoryCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        } 
     }
 }
