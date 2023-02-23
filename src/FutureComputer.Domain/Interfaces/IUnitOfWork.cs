@@ -1,6 +1,6 @@
 namespace FutureComputer.Domain.Interfaces;
 
-public interface IUnitOfWork<T>
+public interface IUnitOfWork
 {
     Task<int> CommitAsync(CancellationToken cancellationToken = default);
 }
