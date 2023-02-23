@@ -20,8 +20,12 @@ namespace FutureComputer.Infrastructure.Domain.Config
             builder.Property(a => a.ImageUrls)
                 .IsRequired(true);
 
+            builder.Property(p => p.Price)
+                .IsRequired()
+                .HasDefaultValue(1f);
+
             builder.Property(a => a.Quantity)
-                .HasDefaultValue(0);
+                .HasDefaultValue(1);
 
             builder.Property(a => a.Description)
                 .IsRequired(false);
