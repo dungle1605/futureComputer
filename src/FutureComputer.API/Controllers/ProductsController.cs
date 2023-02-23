@@ -3,6 +3,7 @@ using FutureComputer.API.Configuration.Exceptions;
 using FutureComputer.Application.Products.Common;
 using FutureComputer.Application.Products.GetAllProducts;
 using FutureComputer.Application.Products.GetProductById;
+using FutureComputer.Application.Products.GetProductBySearch;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,6 +37,15 @@ public class ProductsController : ControllerBase
     {
         var query = new GetProductByIdQuery(id);
         var result = await _mediator.Send(query);
+
+        return Ok(result);
+    }
+
+    [HttpGet("get-products-by-search")]
+    [ProducesResponseType(typeof(ProductResponse), (int)HttpStatusCode.OK)]
+    public async Task<IActionResult> GetProductBySearch([FromQuery] SearchProductQuery serchProduct)
+    {
+        var result = await _mediator.Send(serchProduct);
 
         return Ok(result);
     }

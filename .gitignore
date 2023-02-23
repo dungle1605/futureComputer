@@ -20,3 +20,7 @@ tests/FutureComputer.API.IntegrationTests/bin
 *.editorconfig
 *.suo
 *.vsidx
+
+tests/FutureComputer.Application.UnitTest/obj/FutureComputer.Application.UnitTest.csproj.nuget.dgspec.json
+tests/FutureComputer.Application.UnitTest/obj/FutureComputer.Application.UnitTest.csproj.nuget.g.props
+tests/FutureComputer.Application.UnitTest/obj/project.assets.json

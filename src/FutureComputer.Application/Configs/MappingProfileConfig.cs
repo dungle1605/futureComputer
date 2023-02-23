@@ -8,8 +8,5 @@ public class MappingProfileConfig<T, TResult> : Profile
     {
         // convert from T - TResult
         CreateMap<T, TResult>();
-
-        // convert from TResult - T
-        CreateMap<TResult, T>();
     }
 }
