@@ -11,8 +11,11 @@ obj
 tests/FutureComputer.Application.UnitTest/obj
 tests/FutureComputer.Application.UnitTest/bin
 
-tests/FutureComputer.API.IntegrationTests/obj
-tests/FutureComputer.API.IntegrationTests/bin
+tests/FutureComputer.Application.UnitTest/obj/*
+tests/FutureComputer.Application.UnitTest/bin/*
+
+tests/FutureComputer.API.IntegrationTest/obj
+tests/FutureComputer.API.IntegrationTest/bin
 
 .vs/*
 .vscode/*
