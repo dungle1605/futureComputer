@@ -3,17 +3,17 @@ using FutureComputer.Domain.Entities;
 
 namespace FutureComputer.API.IntegrationTest.Controllers;
 
-public class ProductControllerTests : InMemoryTestBase
+public class ProductControllerTests : InMemoryTestBase2
 {
     private readonly string commonAPI = "api/products";
-
-    public ProductControllerTests(TestingWebAppFactory<Program> factory) : base(factory)
-    {
-    }
+    // public ProductControllerTests(TestingWebAppFactory<Program> factory) : base(factory)
+    // {
+    // }
 
     [Fact]
     public async Task GetAllProducts_EmptyList_ReturnProducts()
     {
+        var _client = await CreateClient();
         InitProductList();
         var response = await _client.GetAsync($"{commonAPI}/get-all-products");
     }
@@ -23,13 +23,15 @@ public class ProductControllerTests : InMemoryTestBase
         var cate1 = new Category
         {
             Id = Guid.NewGuid(),
-            Name = "Cate 1"
+            Name = "Cate 1",
+            Created = DateTime.Now
         };
 
         var cate2 = new Category
         {
             Id = Guid.NewGuid(),
-            Name = "Cate 2"
+            Name = "Cate 2",
+            Created = DateTime.Now
         };
 
         var lstProduct = new List<Product>{
@@ -37,35 +39,46 @@ public class ProductControllerTests : InMemoryTestBase
                 Id = Guid.NewGuid(),
                 Price = 1,
                 Name = "Prod 1",
-                Category = cate1
+                ImageUrls = "Image 1",
+                CategoryId = cate1.Id,
+                Created = DateTime.Now
             },
             new Product{
                 Id = Guid.NewGuid(),
                 Price = 2,
                 Name = "Prod 2",
-                Category = cate2
+                ImageUrls = "Image 2",
+                CategoryId = cate2.Id,
+                Created = DateTime.Now
             },
             new Product{
                 Id = Guid.NewGuid(),
                 Price = 3,
                 Name = "Prod 3",
-                Category = cate2
+                ImageUrls = "Image 3",
+                CategoryId = cate2.Id,
+                Created = DateTime.Now
             },
             new Product{
                 Id = Guid.NewGuid(),
                 Price = 4,
                 Name = "Prod 4",
-                Category = cate1
+                ImageUrls = "Image 4",
+                CategoryId = cate1.Id,
+                Created = DateTime.Now
             },
             new Product{
                 Id = Guid.NewGuid(),
                 Price = 5,
                 Name = "Prod 5",
-                Category = cate1
+                ImageUrls = "Image 5",
+                CategoryId = cate1.Id,
+                Created = DateTime.Now
             }
         };
 
         _fcDbContext.Set<Category>().AddRange(cate1, cate2);
+        // _fcDbContext.SaveChanges();
         _fcDbContext.Set<Product>().AddRange(lstProduct);
         _fcDbContext.SaveChanges();
     }

@@ -27,3 +27,6 @@ tests/FutureComputer.API.IntegrationTest/bin
 tests/FutureComputer.Application.UnitTest/obj/FutureComputer.Application.UnitTest.csproj.nuget.dgspec.json
 tests/FutureComputer.Application.UnitTest/obj/FutureComputer.Application.UnitTest.csproj.nuget.g.props
 tests/FutureComputer.Application.UnitTest/obj/project.assets.json
+tests/FutureComputer.Application.UnitTest/obj/FutureComputer.Application.UnitTest.csproj.nuget.dgspec.json
+tests/FutureComputer.Application.UnitTest/obj/FutureComputer.Application.UnitTest.csproj.nuget.g.props
+tests/FutureComputer.Application.UnitTest/obj/project.assets.json
