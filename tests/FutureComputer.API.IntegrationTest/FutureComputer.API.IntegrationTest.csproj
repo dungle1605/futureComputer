@@ -6,8 +6,6 @@
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
-    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,6 +27,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\FutureComputer.API\FutureComputer.API.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
 
 </Project>

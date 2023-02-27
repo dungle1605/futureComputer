@@ -1,21 +1,29 @@
+using System.Net;
 using FutureComputer.API.IntegrationTest.Configuration;
+using FutureComputer.API.IntegrationTest.Helpers;
+using FutureComputer.Application.Products.Common;
 using FutureComputer.Domain.Entities;
 
 namespace FutureComputer.API.IntegrationTest.Controllers;
 
-public class ProductControllerTests : InMemoryTestBase2
+public class ProductControllerTests : InMemoryTestBase
 {
     private readonly string commonAPI = "api/products";
-    // public ProductControllerTests(TestingWebAppFactory<Program> factory) : base(factory)
-    // {
-    // }
+
+    public ProductControllerTests(TestingWebAppFactory<Program> factory) : base(factory)
+    {
+    }
 
     [Fact]
     public async Task GetAllProducts_EmptyList_ReturnProducts()
     {
-        var _client = await CreateClient();
         InitProductList();
+
         var response = await _client.GetAsync($"{commonAPI}/get-all-products");
+        var result = await IntegrationTestHelper.GetResponseContent<List<ProductResponse>>(response);
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        Assert.Equal(5, result.Count);
     }
 
     private void InitProductList()

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
 
 namespace FutureComputer.API.IntegrationTest.Configuration;
 
@@ -26,19 +25,17 @@ public class TestingWebAppFactory<TEntryPoint> : WebApplicationFactory<Program> 
             });
 
             var sp = services.BuildServiceProvider();
-            using (var scope = sp.CreateScope())
-            {
-                FCDbContext = scope.ServiceProvider.GetRequiredService<FutureComputerDbContext>();
+            var scope = sp.CreateScope();
+            FCDbContext = scope.ServiceProvider.GetRequiredService<FutureComputerDbContext>();
 
-                try
-                {
-                    FCDbContext.Database.EnsureDeleted();
-                    FCDbContext.Database.EnsureCreated();
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+            try
+            {
+                FCDbContext.Database.EnsureDeleted();
+                FCDbContext.Database.EnsureCreated();
+            }
+            catch (Exception)
+            {
+                throw;
             }
         });
     }
