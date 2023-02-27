@@ -4,7 +4,7 @@ namespace FutureComputer.Infrastructure.Domain;
 
 public class UnitOfWork : IUnitOfWork
 {
-    public Task<int> CommitAsync(CancellationToken cancellationToken = default)
+    public async Task<int> CommitAsync(CancellationToken cancellationToken = default)
     {
         throw new NotImplementedException();
     }

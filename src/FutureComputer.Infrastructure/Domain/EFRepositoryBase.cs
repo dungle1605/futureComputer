@@ -141,11 +141,11 @@ public class EFRepositoryBase<T> : IRepository<T>, IReadRepository<T> where T : 
 
     protected virtual IQueryable<T> ApplySpecification(ISpecification<T> spec, bool evaluaCriteriaOnly = false)
     {
-        return _specificationEvaluator.GetQuery(_dbContext.Set<T>().AsQueryable(), spec, evaluaCriteriaOnly);
+        return _specificationEvaluator.GetQuery(_dbContext.Set<T>().AsNoTracking().AsQueryable(), spec, evaluaCriteriaOnly);
     }
 
     protected IQueryable<TResult> ApplySpecification<TResult>(ISpecification<T, TResult> spec)
     {
-        return _specificationEvaluator.GetQuery(_dbContext.Set<T>().AsQueryable(), spec);
+        return _specificationEvaluator.GetQuery(_dbContext.Set<T>().AsNoTracking().AsQueryable(), spec);
     }
 }

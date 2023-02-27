@@ -11,12 +11,22 @@ obj
 tests/FutureComputer.Application.UnitTest/obj
 tests/FutureComputer.Application.UnitTest/bin
 
-tests/FutureComputer.API.IntegrationTests/obj
-tests/FutureComputer.API.IntegrationTests/bin
+tests/FutureComputer.Application.UnitTest/obj/*
+tests/FutureComputer.Application.UnitTest/bin/*
 
-*.vs
-*.vscode
+tests/FutureComputer.API.IntegrationTest/obj
+tests/FutureComputer.API.IntegrationTest/bin
+
+.vs/*
+.vscode/*
 *.cache
 *.editorconfig
 *.suo
 *.vsidx
+
+tests/FutureComputer.Application.UnitTest/obj/FutureComputer.Application.UnitTest.csproj.nuget.dgspec.json
+tests/FutureComputer.Application.UnitTest/obj/FutureComputer.Application.UnitTest.csproj.nuget.g.props
+tests/FutureComputer.Application.UnitTest/obj/project.assets.json
+tests/FutureComputer.Application.UnitTest/obj/FutureComputer.Application.UnitTest.csproj.nuget.dgspec.json
+tests/FutureComputer.Application.UnitTest/obj/FutureComputer.Application.UnitTest.csproj.nuget.g.props
+tests/FutureComputer.Application.UnitTest/obj/project.assets.json
