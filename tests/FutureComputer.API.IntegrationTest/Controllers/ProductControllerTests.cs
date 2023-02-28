@@ -52,12 +52,12 @@ public class ProductControllerTests : InMemoryTestBase
     }
 
     [Theory]
-    [InlineData(3, "Cate1", "")]
+    [InlineData(-2, "Cate1", "test")]
     public async Task GetProductBySearch_WrongQueryFormat_ReturnBadRequest(float? price, string cateName, string prodName)
     {
         InitProductList();
 
-        var response = await _client.GetAsync($"{commonAPI}/get-products-by-search?Price={price}&CategoryName={cateName}&Name={prodName}");
+        var response = await _client.GetAsync($"{commonAPI}/get-products-by-search?price={price}&categoryName={cateName}&prodName={prodName}");
 
         Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
     }
@@ -68,7 +68,7 @@ public class ProductControllerTests : InMemoryTestBase
     {
         InitProductList();
 
-        var response = await _client.GetAsync($"{commonAPI}/get-products-by-search?price={price}&&CategoryName={cateName}&&name={prodName}");
+        var response = await _client.GetAsync($"{commonAPI}/get-products-by-search?price={price}&ategoryName={cateName}&&name={prodName}");
         var result = await IntegrationTestHelper.GetResponseContent<List<ProductResponse>>(response);
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -81,6 +81,9 @@ public class ProductControllerTests : InMemoryTestBase
 
         //var response = 
     }
+
+    //[Fact]
+    //public async Task CreateProductCommand_
 
     private void InitProductList()
     {
