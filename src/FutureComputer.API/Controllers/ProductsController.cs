@@ -44,9 +44,10 @@ public class ProductsController : ControllerBase
 
     [HttpGet("get-products-by-search")]
     [ProducesResponseType(typeof(List<ProductResponse>), (int)HttpStatusCode.OK)]
-    public async Task<IActionResult> GetProductBySearch([FromQuery] SearchProductQuery serchProduct)
+    public async Task<IActionResult> GetProductBySearch([FromQuery] SearchProductQuery searchQuery)
     {
-        var result = await _mediator.Send(serchProduct);
+        //var searchQuery = new SearchProductQuery(price, cateName, prodName);
+        var result = await _mediator.Send(searchQuery);
 
         return Ok(result);
     }
