@@ -26,6 +26,62 @@ public class ProductControllerTests : InMemoryTestBase
         Assert.Equal(5, result.Count);
     }
 
+    [Theory]
+    [InlineData("TestId")]
+    public async Task GetProductById_WrongIdFormat_ReturnNotFound(string id)
+    {
+        InitProductList();
+
+        var response = await _client.GetAsync($"{commonAPI}/{id}");
+
+        Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+    }
+
+    [Theory]
+    [InlineData("d8cc0fd9-9350-4eac-8691-0167dd22ae0a")]
+    public async Task GetProductById_WrongIdFormat_ReturnProductResponse(Guid id)
+    {
+        InitProductList();
+
+        var response = await _client.GetAsync($"{commonAPI}/{id}");
+        var result = await IntegrationTestHelper.GetResponseContent<ProductResponse>(response);
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        Assert.Equal("Prod 2", result.Name);
+        Assert.Equal(2, result.Price);
+    }
+
+    [Theory]
+    [InlineData(3, "Cate1", "")]
+    public async Task GetProductBySearch_WrongQueryFormat_ReturnBadRequest(float? price, string cateName, string prodName)
+    {
+        InitProductList();
+
+        var response = await _client.GetAsync($"{commonAPI}/get-products-by-search?Price={price}&CategoryName={cateName}&Name={prodName}");
+
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+    }
+
+    [Theory]
+    [InlineData(null, "Cate 1", "")]
+    public async Task GetProductBySearch_ProductBelongToSpecificCategory_ReturnListProductResponse(float? price, string cateName, string prodName)
+    {
+        InitProductList();
+
+        var response = await _client.GetAsync($"{commonAPI}/get-products-by-search?price={price}&&CategoryName={cateName}&&name={prodName}");
+        var result = await IntegrationTestHelper.GetResponseContent<List<ProductResponse>>(response);
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+    }
+
+    [Fact]
+    public async Task CreateProductBySpecificCategory_InvalidCategory_ReturnBadRequest()
+    {
+        InitProductList();
+
+        //var response = 
+    }
+
     private void InitProductList()
     {
         var cate1 = new Category
@@ -52,7 +108,7 @@ public class ProductControllerTests : InMemoryTestBase
                 Created = DateTime.Now
             },
             new Product{
-                Id = Guid.NewGuid(),
+                Id = Guid.Parse("d8cc0fd9-9350-4eac-8691-0167dd22ae0a"),
                 Price = 2,
                 Name = "Prod 2",
                 ImageUrls = "Image 2",
