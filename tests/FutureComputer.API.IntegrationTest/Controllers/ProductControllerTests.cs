@@ -63,12 +63,12 @@ public class ProductControllerTests : InMemoryTestBase
     }
 
     [Theory]
-    [InlineData(null, "Cate 1", "")]
+    [InlineData(0, "Cate 1", "test")]
     public async Task GetProductBySearch_ProductBelongToSpecificCategory_ReturnListProductResponse(float? price, string cateName, string prodName)
     {
         InitProductList();
 
-        var response = await _client.GetAsync($"{commonAPI}/get-products-by-search?price={price}&ategoryName={cateName}&&name={prodName}");
+        var response = await _client.GetAsync($"{commonAPI}/get-products-by-search?categoryName={cateName}&name={prodName}");
         var result = await IntegrationTestHelper.GetResponseContent<List<ProductResponse>>(response);
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);

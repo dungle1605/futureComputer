@@ -5,14 +5,14 @@ namespace FutureComputer.Application.Products.GetProductBySearch;
 
 public class SearchProductQuery : IRequest<List<ProductResponse>>
 {
-    public float? Price { get; set; }
+    public float Price { get; set; }
     public string CategoryName { get; set; }
     public string Name { get; set; }
 
-    public SearchProductQuery(float? price, string categoryName, string name)
+    public SearchProductQuery(float price, string categoryName, string name)
     {
         Price = price;
-        CategoryName = categoryName;
-        Name = name;
+        CategoryName = categoryName.Replace("%20", " ");
+        Name = name.Replace("%20", " ");
     }
 }

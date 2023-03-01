@@ -25,7 +25,7 @@ public class GetProductBySearchHandlerTest
     [Fact]
     public async void GetProductBySearch_EmptySearchField_ReturnListResponse()
     {
-        var query = new SearchProductQuery(default, "", string.Empty);
+        var query = new SearchProductQuery(-3, "", string.Empty);
 
         var lstProd = new List<Product>{
             new Product{
