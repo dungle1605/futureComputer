@@ -5,6 +5,7 @@ using FutureComputer.Application.Products.CreateProductBySpecificCategory;
 using FutureComputer.Application.Products.GetAllProducts;
 using FutureComputer.Application.Products.GetProductById;
 using FutureComputer.Application.Products.GetProductBySearch;
+using FutureComputer.Application.Products.UpdateProduct;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -52,10 +53,20 @@ public class ProductsController : ControllerBase
         return Ok(result);
     }
 
-    [HttpPost()]
+    [HttpPost("create-prod")]
     [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
     [ProducesResponseType(typeof(ProblemDetailsSwaggerResponse), (int)HttpStatusCode.BadGateway)]
     public async Task<IActionResult> CreateProductBySpecificCategory([FromBody] CreateProductCommand command)
+    {
+        var result = await _mediator.Send(command);
+
+        return Ok(result);
+    }
+
+    [HttpPost("update-prod")]
+    [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(ProblemDetailsSwaggerResponse), (int)HttpStatusCode.BadGateway)]
+    public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductCommand command)
     {
         var result = await _mediator.Send(command);
 
