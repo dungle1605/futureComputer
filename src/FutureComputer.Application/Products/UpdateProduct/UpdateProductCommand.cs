@@ -6,6 +6,7 @@ namespace FutureComputer.Application.Products.UpdateProduct;
 public class UpdateProductCommand : IRequest<bool>
 {
     public Guid Id { get; set; }
+
     public float Price { get; set; }
 
     public Guid CategoryId { get; set; }
