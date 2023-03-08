@@ -23,7 +23,17 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, string
         {
             return "Product name is already existed in this system!";
         }
+        try
+        {
+            var product = _mapper.MapperHandler(request);
+            product.ImageUrls = "";
+            await _repository.AddAsync(product);
 
-        var product = _mapper
+            return "Add product successfully";
+        }
+        catch (Exception ex)
+        {
+            return ex.Message;
+        }
     }
 }
