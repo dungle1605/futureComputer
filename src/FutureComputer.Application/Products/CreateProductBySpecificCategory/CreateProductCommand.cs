@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace FutureComputer.Application.Products.CreateProductBySpecificCategory;
 
-public class CreateProductCommand : IRequest<bool>
+public class CreateProductCommand : IRequest<string>
 {
     public float Price { get; set; }
 

@@ -2,6 +2,7 @@ using System.Net;
 using FutureComputer.API.Configuration.Exceptions;
 using FutureComputer.Application.Products.Common;
 using FutureComputer.Application.Products.CreateProductBySpecificCategory;
+using FutureComputer.Application.Products.DeleteProduct;
 using FutureComputer.Application.Products.GetAllProducts;
 using FutureComputer.Application.Products.GetProductById;
 using FutureComputer.Application.Products.GetProductBySearch;
@@ -63,10 +64,21 @@ public class ProductsController : ControllerBase
         return Ok(result);
     }
 
-    [HttpPost("update-prod")]
+    [HttpPost("update-prod/{id:guid}")]
     [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
     [ProducesResponseType(typeof(ProblemDetailsSwaggerResponse), (int)HttpStatusCode.BadGateway)]
     public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductCommand command)
+    {
+        var result = await _mediator.Send(command);
+
+        return Ok(result);
+    }
+
+    [HttpPost("delete-prod/{id:guid}")]
+    [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(ProblemDetailsSwaggerResponse), (int)HttpStatusCode.BadGateway)]
+    [ProducesResponseType(typeof(ProblemDetailsSwaggerResponse), (int)HttpStatusCode.BadRequest)]
+    public async Task<IActionResult> DeleteProduct([FromBody] DeleteProductCommand command)
     {
         var result = await _mediator.Send(command);
 
