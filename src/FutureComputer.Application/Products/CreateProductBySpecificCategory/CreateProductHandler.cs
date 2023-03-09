@@ -38,6 +38,7 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, string
 
             // Save file to local for back-up purpose
             var folderServerName = Path.Combine("Resources", CommonConstant.FOLDER_NAME);
+            // var localFile
 
             var product = _mapper.MapperHandler(request);
             product.ImageUrls = "";

@@ -7,6 +7,7 @@ using FutureComputer.Application.Categories.GetCategoryById;
 using FutureComputer.Application.Categories.UpdateCategory;
 using FutureComputer.Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -23,6 +24,7 @@ namespace FutureComputer.API.Controllers
             _mediator = mediator;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet("get-all-categories")]
         [ProducesResponseType(typeof(List<CategoryResponse>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetAllCategories()
@@ -33,6 +35,7 @@ namespace FutureComputer.API.Controllers
             return Ok(result);
         }
 
+        [Authorize]
         [HttpGet("{id:guid}")]
         [ProducesResponseType(typeof(CategoryResponse), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(ProblemDetailsSwaggerResponse), (int)HttpStatusCode.BadRequest)]
@@ -47,7 +50,7 @@ namespace FutureComputer.API.Controllers
         [HttpPost("create-category")]
         public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryCommand command)
         {
-            var result = await _mediator.Send(command); 
+            var result = await _mediator.Send(command);
             return Ok(result);
         }
 
@@ -63,6 +66,6 @@ namespace FutureComputer.API.Controllers
         {
             var result = await _mediator.Send(command);
             return Ok(result);
-        } 
+        }
     }
 }
