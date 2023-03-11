@@ -24,7 +24,6 @@ namespace FutureComputer.API.Controllers
             _mediator = mediator;
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpGet("get-all-categories")]
         [ProducesResponseType(typeof(List<CategoryResponse>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetAllCategories()
@@ -35,8 +34,7 @@ namespace FutureComputer.API.Controllers
             return Ok(result);
         }
 
-        [Authorize]
-        [HttpGet("{id:guid}")]
+        [HttpGet("{id:guid}"), Authorize(Roles = "Admin")]
         [ProducesResponseType(typeof(CategoryResponse), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(ProblemDetailsSwaggerResponse), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> GetCategoryById([FromRoute] Guid id)

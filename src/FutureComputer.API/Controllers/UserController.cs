@@ -1,5 +1,9 @@
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using FutureComputer.Application.Users.LoginUser;
+using FutureComputer.Application.Users.Register;
+using FutureComputer.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,9 +20,18 @@ public class UserController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpPost]
+    [HttpPost("login")]
     [ProducesResponseType(typeof(string), (int)HttpStatusCode.OK)]
-    public async Task<IActionResult> LoginUser(UserLoginCommand command)
+    public async Task<ActionResult<string>> LoginUser([FromBody] UserLoginCommand command)
+    {
+        var result = await _mediator.Send(command);
+
+        return Ok(result);
+    }
+
+    [HttpPost("register")]
+    [ProducesResponseType(typeof(string), (int)HttpStatusCode.OK)]
+    public async Task<IActionResult> RegisterAccount([FromBody] UserRegisterCommand command)
     {
         var result = await _mediator.Send(command);
 

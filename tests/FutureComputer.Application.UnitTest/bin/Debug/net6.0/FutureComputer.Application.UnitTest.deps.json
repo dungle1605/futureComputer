@@ -1591,7 +1591,8 @@
           "FutureComputer.Domain": "1.0.0",
           "FutureComputer.Infrastructure": "1.0.0",
           "MediatR": "11.1.0",
-          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0"
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0",
+          "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "FutureComputer.Application.dll": {}
