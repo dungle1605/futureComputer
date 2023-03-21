@@ -145,7 +145,6 @@ public class ProductControllerTests : InMemoryTestBase
         };
 
         _fcDbContext.Set<Category>().AddRange(cate1, cate2);
-        // _fcDbContext.SaveChanges();
         _fcDbContext.Set<Product>().AddRange(lstProduct);
         _fcDbContext.SaveChanges();
     }
