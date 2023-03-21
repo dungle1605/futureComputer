@@ -1,5 +1,11 @@
 using FutureComputer.Application;
 using FutureComputer.Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Filters;
+using FutureComputer.API.Configuration.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -10,7 +16,34 @@ IWebHostEnvironment environment = builder.Environment;
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+    {
+        Description = "Auth with beaerer token",
+        In = ParameterLocation.Header,
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey
+    });
+    options.OperationFilter<SecurityRequirementsOperationFilter>();
+});
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
+            .GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value)),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
+
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add(typeof(CustomExceptionFilter));
+});
 
 // Custom Services
 builder.Services.AddServicesApplication();
@@ -29,6 +62,7 @@ app.UseRouting();
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();
