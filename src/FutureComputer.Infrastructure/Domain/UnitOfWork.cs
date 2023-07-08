@@ -4,8 +4,35 @@ namespace FutureComputer.Infrastructure.Domain;
 
 public class UnitOfWork : IUnitOfWork
 {
-    public async Task<int> CommitAsync(CancellationToken cancellationToken = default)
+    private readonly FutureComputerDbContext _dbContext;
+
+    public UnitOfWork(FutureComputerDbContext dbContext)
     {
-        throw new NotImplementedException();
+        _dbContext = dbContext;
+    }
+
+    public void SaveChange(CancellationToken cancellationToken = default)
+    {
+        _dbContext.SaveChanges();
+    }
+
+    private bool disposed = false;
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!this.disposed)
+        {
+            if (disposing)
+            {
+                _dbContext.Dispose();
+            }
+        }
+        this.disposed = true;
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }

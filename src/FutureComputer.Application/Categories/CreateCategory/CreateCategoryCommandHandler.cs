@@ -1,17 +1,8 @@
-﻿using AutoMapper;
-using FutureComputer.Application.Categories.Common;
+﻿using FutureComputer.Application.Categories.Common;
 using FutureComputer.Application.Configs;
 using FutureComputer.Domain.Entities;
 using FutureComputer.Domain.Interfaces;
 using MediatR;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace FutureComputer.Application.Categories.CreateCategory
 {
@@ -20,9 +11,9 @@ namespace FutureComputer.Application.Categories.CreateCategory
         private readonly IRepository<Category> _repository;
         private readonly MappingProfile<CreateCategoryCommand, Category> _mapper;
         private readonly MappingProfile<Category, CategoryResponse> _mapperResponse;
-        private readonly IUnitOfWork _unitOfWork; 
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateCategoryCommandHandler(IRepository<Category> repository, MappingProfile<CreateCategoryCommand, Category> mappper, 
+        public CreateCategoryCommandHandler(IRepository<Category> repository, MappingProfile<CreateCategoryCommand, Category> mappper,
             MappingProfile<Category, CategoryResponse> mapperResponse, IUnitOfWork unitOfWork)
         {
             _repository = repository;
@@ -40,8 +31,10 @@ namespace FutureComputer.Application.Categories.CreateCategory
             if (!isExisted)
             {
                 var mapped = _mapper.MapperHandler(request);
+                mapped.Created = DateTime.Now;
+                mapped.IsAvailable = true;
                 var createdResult = await _repository.AddAsync(mapped);
-                await _repository.SaveChangesAsync();
+                _unitOfWork.SaveChange(cancellationToken);
                 categoryResponse = _mapperResponse.MapperHandler(createdResult);
             }
 
