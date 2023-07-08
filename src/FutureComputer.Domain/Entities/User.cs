@@ -10,7 +10,6 @@ namespace FutureComputer.Domain.Entities
         public byte[] Hash { get; set; }
         public byte[] Salt { get; set; }
         public bool IsActive { get; set; }
-        public Guid RoleId { get; set; }
-        public Role Role { get; set; }
+        public int RoleId { get; set; }
     }
 }

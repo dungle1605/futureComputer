@@ -1,10 +1,9 @@
-using FutureComputer.Application.Configs;
 using FutureComputer.Domain.Entities;
+using FutureComputer.Domain.Enum;
 using FutureComputer.Domain.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -15,12 +14,10 @@ namespace FutureComputer.Application.Users.LoginUser;
 public class UserLoginHandler : IRequestHandler<UserLoginCommand, string>
 {
     private readonly IRepository<User> _userRepository;
-    private readonly IRepository<Role> _roleRepository;
     private readonly IConfiguration _configuration;
-    public UserLoginHandler(IRepository<User> userRepository, IRepository<Role> roleRepository, IConfiguration configuration)
+    public UserLoginHandler(IRepository<User> userRepository, IConfiguration configuration)
     {
         _userRepository = userRepository;
-        _roleRepository = roleRepository;
         _configuration = configuration;
     }
 
@@ -29,26 +26,23 @@ public class UserLoginHandler : IRequestHandler<UserLoginCommand, string>
         Hash(request.Password, out byte[] hash, out byte[] salt);
 
         var user = await GetSpecificUser(request.Email, request.Password, hash, salt);
-        if(user== null) 
+        if (user == null)
         {
             return "Login failed.";
         }
 
-        var token = await CreateToken(user);
+        var token = CreateToken(user);
 
         return token;
     }
 
-    private async Task<string> CreateToken(User user)
+    private string CreateToken(User user)
     {
-        var roleSpecification = new GetUserRoleSpecification(user.RoleId);
-
-        var role = await _roleRepository.FirstOrDefaultAsync(roleSpecification);
-        List<Claim> claims = new List<Claim>
+        List<Claim> claims = new()
         {
             new Claim(ClaimTypes.Email, user.Email),
             new Claim(ClaimTypes.Name, user.UserName),
-            new Claim(ClaimTypes.Role, role.RoleName)
+            new Claim(ClaimTypes.Role, ((BaseRole)user.RoleId).GetEnumDescription())
         };
 
         var tokenSection = _configuration.GetSection("AppSettings:Token").Value;
@@ -66,34 +60,27 @@ public class UserLoginHandler : IRequestHandler<UserLoginCommand, string>
         return jwt;
     }
 
-    private async Task<User> GetSpecificUser(string email, string password, byte[] hash, byte[] salt)
+    private async Task<User?> GetSpecificUser(string email, string password, byte[] hash, byte[] salt)
     {
-        byte[] computedHash = null;
-
-        var getAllUserSpecification = new GetAllUserSpecification();
-
-        var allUsers = await _userRepository.ListAsync(getAllUserSpecification);
-        foreach(var user in allUsers)
+        var getUserSpecification = new GetUserByEmailSpecification(email);
+        var user = await _userRepository.FirstOrDefaultAsync(getUserSpecification);
+        if (user != null)
         {
-            using (var hmac = new HMACSHA512(user.Salt))
+            using var hmac = new HMACSHA512(user.Salt);
+            byte[] computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+            if (user.Hash.SequenceEqual(computedHash))
             {
-                computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-                if(user.Hash.SequenceEqual(computedHash))
-                {
-                    return user;
-                }
+                return user;
             }
+            return null;
         }
-
         return null;
     }
 
-    public void Hash(string password, out byte[] hash, out byte[] salt)
+    private static void Hash(string password, out byte[] hash, out byte[] salt)
     {
-        using (var hmac = new HMACSHA512())
-        {
-            salt = hmac.Key;
-            hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-        }
+        using var hmac = new HMACSHA512();
+        salt = hmac.Key;
+        hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
     }
 }

@@ -28,8 +28,6 @@ public class FutureComputerDbContext : DbContext
 
     public DbSet<User> Users { get; set; }
 
-    public DbSet<Role> Roles { get; set; }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //This will singularize all table names
@@ -44,7 +42,6 @@ public class FutureComputerDbContext : DbContext
         modelBuilder.ApplyConfiguration(new ProductConfiguration());
         modelBuilder.ApplyConfiguration(new CustomerConfiguration());
         modelBuilder.ApplyConfiguration(new UserConfiguration());
-        modelBuilder.ApplyConfiguration(new RoleConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

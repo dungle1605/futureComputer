@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using FutureComputer.API.Configuration.Exceptions;
+using FutureComputer.API;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -27,18 +28,7 @@ builder.Services.AddSwaggerGen(options =>
     });
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
-            .GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value)),
-            ValidateIssuer = false,
-            ValidateAudience = false
-        };
-    });
+
 
 builder.Services.AddControllers(options =>
 {
@@ -48,6 +38,7 @@ builder.Services.AddControllers(options =>
 // Custom Services
 builder.Services.AddServicesApplication();
 builder.Services.AddServicesInfrastructure(configuration);
+builder.Services.AddWebApiServices(configuration);
 
 var app = builder.Build();
 

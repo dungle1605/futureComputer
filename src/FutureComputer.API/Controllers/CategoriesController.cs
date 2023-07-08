@@ -5,7 +5,6 @@ using FutureComputer.Application.Categories.DeleteCategoryById;
 using FutureComputer.Application.Categories.GetAllCategories;
 using FutureComputer.Application.Categories.GetCategoryById;
 using FutureComputer.Application.Categories.UpdateCategory;
-using FutureComputer.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -46,6 +45,9 @@ namespace FutureComputer.API.Controllers
         }
 
         [HttpPost("create-category")]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(typeof(CategoryResponse), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ProblemDetailsSwaggerResponse), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryCommand command)
         {
             var result = await _mediator.Send(command);

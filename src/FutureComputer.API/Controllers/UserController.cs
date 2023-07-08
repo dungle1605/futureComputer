@@ -1,9 +1,6 @@
 using System.Net;
-using System.Security.Cryptography;
-using System.Text;
 using FutureComputer.Application.Users.LoginUser;
 using FutureComputer.Application.Users.Register;
-using FutureComputer.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

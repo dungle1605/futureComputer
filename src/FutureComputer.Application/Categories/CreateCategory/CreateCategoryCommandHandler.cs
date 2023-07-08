@@ -25,7 +25,7 @@ namespace FutureComputer.Application.Categories.CreateCategory
         public async Task<CategoryResponse> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
             var filter = new CreateCategorySpecification(request.Name);
-            var isExisted = await _repository.AnyAsync(filter);
+            var isExisted = await _repository.AnyAsync(filter, cancellationToken);
 
             var categoryResponse = new CategoryResponse();
             if (!isExisted)
@@ -33,7 +33,8 @@ namespace FutureComputer.Application.Categories.CreateCategory
                 var mapped = _mapper.MapperHandler(request);
                 mapped.Created = DateTime.Now;
                 mapped.IsAvailable = true;
-                var createdResult = await _repository.AddAsync(mapped);
+                var createdResult = await _repository.AddAsync(mapped, cancellationToken);
+
                 _unitOfWork.SaveChange(cancellationToken);
                 categoryResponse = _mapperResponse.MapperHandler(createdResult);
             }

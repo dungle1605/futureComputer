@@ -1,5 +1,4 @@
 using FutureComputer.Domain.Common;
-using FutureComputer.Domain.Interfaces;
 
 namespace FutureComputer.Domain.Entities;
 
