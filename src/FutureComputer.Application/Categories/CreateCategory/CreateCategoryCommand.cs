@@ -6,6 +6,5 @@ namespace FutureComputer.Application.Categories.CreateCategory
     public class CreateCategoryCommand : IRequest<CategoryResponse>
     {
         public string? Name { get; set; }
-        public Guid? CreatedBy { get; set; }
     }
 }

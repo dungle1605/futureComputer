@@ -42,7 +42,8 @@ public class UserLoginHandler : IRequestHandler<UserLoginCommand, string>
         {
             new Claim(ClaimTypes.Email, user.Email),
             new Claim(ClaimTypes.Name, user.UserName),
-            new Claim(ClaimTypes.Role, ((BaseRole)user.RoleId).GetEnumDescription())
+            new Claim(ClaimTypes.Role, ((BaseRole)user.RoleId).GetEnumDescription()),
+            new Claim(ClaimTypes.Sid, user.Id.ToString())
         };
 
         var tokenSection = _configuration.GetSection("AppSettings:Token").Value;

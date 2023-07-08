@@ -45,7 +45,7 @@ namespace FutureComputer.API.Controllers
         }
 
         [HttpPost("create-category")]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         [ProducesResponseType(typeof(CategoryResponse), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(ProblemDetailsSwaggerResponse), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryCommand command)

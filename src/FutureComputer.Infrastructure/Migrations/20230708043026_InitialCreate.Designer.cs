@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FutureComputer.Infrastructure.Migrations
 {
     [DbContext(typeof(FutureComputerDbContext))]
-    [Migration("20230708022555_InitialCreate")]
+    [Migration("20230708043026_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -254,33 +254,6 @@ namespace FutureComputer.Infrastructure.Migrations
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("FutureComputer.Domain.Entities.Role", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("LastModified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("LastModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("RoleName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Role");
-                });
-
             modelBuilder.Entity("FutureComputer.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -312,8 +285,8 @@ namespace FutureComputer.Infrastructure.Migrations
                     b.Property<Guid?>("LastModifiedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
                     b.Property<byte[]>("Salt")
                         .IsRequired()
@@ -324,8 +297,6 @@ namespace FutureComputer.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
 
                     b.ToTable("User");
                 });
@@ -350,17 +321,6 @@ namespace FutureComputer.Infrastructure.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("FutureComputer.Domain.Entities.User", b =>
-                {
-                    b.HasOne("FutureComputer.Domain.Entities.Role", "Role")
-                        .WithMany("Users")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
-                });
-
             modelBuilder.Entity("FutureComputer.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Products");
@@ -369,11 +329,6 @@ namespace FutureComputer.Infrastructure.Migrations
             modelBuilder.Entity("FutureComputer.Domain.Entities.Customer", b =>
                 {
                     b.Navigation("Addresses");
-                });
-
-            modelBuilder.Entity("FutureComputer.Domain.Entities.Role", b =>
-                {
-                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

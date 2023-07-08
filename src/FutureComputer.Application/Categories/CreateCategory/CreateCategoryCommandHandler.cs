@@ -9,17 +9,16 @@ namespace FutureComputer.Application.Categories.CreateCategory
     public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, CategoryResponse>
     {
         private readonly IRepository<Category> _repository;
-        private readonly MappingProfile<CreateCategoryCommand, Category> _mapper;
         private readonly MappingProfile<Category, CategoryResponse> _mapperResponse;
+        private readonly ICurrentUserService _currentUser;
         private readonly IUnitOfWork _unitOfWork;
 
-        public CreateCategoryCommandHandler(IRepository<Category> repository, MappingProfile<CreateCategoryCommand, Category> mappper,
-            MappingProfile<Category, CategoryResponse> mapperResponse, IUnitOfWork unitOfWork)
+        public CreateCategoryCommandHandler(IRepository<Category> repository, MappingProfile<Category, CategoryResponse> mapperResponse, IUnitOfWork unitOfWork, ICurrentUserService currentUser)
         {
             _repository = repository;
-            _mapper = mappper;
             _mapperResponse = mapperResponse;
             _unitOfWork = unitOfWork;
+            _currentUser = currentUser;
         }
 
         public async Task<CategoryResponse> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
@@ -30,10 +29,16 @@ namespace FutureComputer.Application.Categories.CreateCategory
             var categoryResponse = new CategoryResponse();
             if (!isExisted)
             {
-                var mapped = _mapper.MapperHandler(request);
-                mapped.Created = DateTime.Now;
-                mapped.IsAvailable = true;
-                var createdResult = await _repository.AddAsync(mapped, cancellationToken);
+                var currentUserId = _currentUser.Id;
+
+                var newCategory = new Category
+                {
+                    Name = request.Name,
+                    Created = DateTime.Now,
+                    CreatedBy = currentUserId,
+                    IsAvailable = true
+                };
+                var createdResult = await _repository.AddAsync(newCategory, cancellationToken);
 
                 _unitOfWork.SaveChange(cancellationToken);
                 categoryResponse = _mapperResponse.MapperHandler(createdResult);
