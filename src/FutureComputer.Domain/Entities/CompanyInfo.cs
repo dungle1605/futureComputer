@@ -3,7 +3,7 @@ using FutureComputer.Domain.Interfaces;
 
 namespace FutureComputer.Domain.Entities;
 
-public class CompanyInfo : BaseAuditableEntity, IAggregateRoot
+public class CompanyInfo : BaseAuditableEntity
 {
     public string CompanyName { get; set; }
     public string CompanyCode { get; set; }

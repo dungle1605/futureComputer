@@ -1,14 +1,8 @@
-﻿using AutoMapper;
-using FutureComputer.Application.Categories.Common;
+﻿using FutureComputer.Application.Categories.Common;
 using FutureComputer.Application.Configs;
 using FutureComputer.Domain.Entities;
 using FutureComputer.Domain.Interfaces;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FutureComputer.Application.Categories.GetCategoryById
 {
