@@ -20,6 +20,20 @@ namespace FutureComputer.Application.Users.Register
 
         public async Task<string> Handle(UserRegisterCommand request, CancellationToken cancellationToken)
         {
+            var isUserExisted = await IsUserExisted(request.UserName);
+
+            if (isUserExisted)
+            {
+                return "User is existed in system, please check!";
+            }
+
+            var isExistedEmail = await IsExistedEmail(request.Email);
+
+            if (isExistedEmail)
+            {
+                return "Email is existed in system, please check!";
+            }
+
             Hash(request.Password, out byte[] hash, out byte[] salt);
 
             var user = _mappingProfile.MapperHandler(request);
@@ -40,6 +54,19 @@ namespace FutureComputer.Application.Users.Register
             using var hmac = new HMACSHA512();
             salt = hmac.Key;
             hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+        }
+
+        private async Task<bool> IsUserExisted(string? username)
+        {
+            var getUserByUsernameSpec = new GetUserByUsernameSpecifification(username);
+            return await _repository.AnyAsync(getUserByUsernameSpec);
+        }
+
+        private async Task<bool> IsExistedEmail(string? email)
+        {
+            var getUserByEmailSpec = new GetUserByEmailSpecification(email);
+
+            return await _repository.AnyAsync(getUserByEmailSpec);
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Text;
+using FutureComputer.API.Configuration;
 using FutureComputer.API.Services;
 using FutureComputer.Domain.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -12,7 +13,7 @@ public static class DependencyInjection
     {
         ConfigureBearer(services, configuration);
         services.AddScoped<ICurrentUserService, CurrentUserService>();
-
+        services.ConfigureCors();
         return services;
     }
 

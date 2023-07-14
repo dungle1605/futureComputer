@@ -1,8 +1,5 @@
 using FutureComputer.Application;
 using FutureComputer.Infrastructure;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using FutureComputer.API.Configuration.Exceptions;
@@ -49,6 +46,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseRouting();
+
+app.UseCors();
 
 app.UseHttpsRedirection();
 

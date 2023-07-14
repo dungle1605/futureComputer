@@ -25,7 +25,7 @@ public class UserLoginHandler : IRequestHandler<UserLoginCommand, string>
     {
         Hash(request.Password, out byte[] hash, out byte[] salt);
 
-        var user = await GetSpecificUser(request.Email, request.Password, hash, salt);
+        var user = await GetSpecificUser(request.Username, request.Password, hash, salt);
         if (user == null)
         {
             return "Login failed.";
@@ -61,9 +61,9 @@ public class UserLoginHandler : IRequestHandler<UserLoginCommand, string>
         return jwt;
     }
 
-    private async Task<User?> GetSpecificUser(string email, string password, byte[] hash, byte[] salt)
+    private async Task<User?> GetSpecificUser(string username, string password, byte[] hash, byte[] salt)
     {
-        var getUserSpecification = new GetUserByEmailSpecification(email);
+        var getUserSpecification = new GetUserByUsernameSpecification(username);
         var user = await _userRepository.FirstOrDefaultAsync(getUserSpecification);
         if (user != null)
         {
