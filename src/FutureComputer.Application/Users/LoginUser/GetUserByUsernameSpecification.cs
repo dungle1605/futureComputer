@@ -5,9 +5,9 @@ namespace FutureComputer.Application.Users.LoginUser
 {
     public class GetUserByUsernameSpecification : Specification<User>
     {
-        public GetUserByUsernameSpecification(string email)
+        public GetUserByUsernameSpecification(string username)
         {
-            Query.Where(x => x.Email == email && x.IsActive);
+            Query.Where(x => x.UserName == username && x.IsActive);
         }
     }
 }
