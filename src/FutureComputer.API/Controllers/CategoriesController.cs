@@ -1,4 +1,5 @@
 ﻿using FutureComputer.API.Configuration.Exceptions;
+using FutureComputer.Application.Categories.CategoriesOfTheMonth;
 using FutureComputer.Application.Categories.Common;
 using FutureComputer.Application.Categories.CreateCategory;
 using FutureComputer.Application.Categories.DeleteCategoryById;
@@ -28,6 +29,16 @@ namespace FutureComputer.API.Controllers
         public async Task<IActionResult> GetAllCategories()
         {
             var query = new GetAllCategoriesQuery();
+            var result = await _mediator.Send(query);
+
+            return Ok(result);
+        }
+
+        [HttpGet("categories-of-the-month")]
+        [ProducesResponseType(typeof(List<CategoryResponse>), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> CategoriesOfTheMonth()
+        {
+            var query = new GetCategoriesOfTheMonthQuery();
             var result = await _mediator.Send(query);
 
             return Ok(result);

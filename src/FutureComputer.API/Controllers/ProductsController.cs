@@ -8,11 +8,12 @@ using FutureComputer.Application.Products.GetProductById;
 using FutureComputer.Application.Products.GetProductBySearch;
 using FutureComputer.Application.Products.UpdateProduct;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FutureComputer.API.Controllers;
 
-[Route("api/products")]
+[Route("api/[controller]")]
 [ApiController]
 public class ProductsController : ControllerBase
 {
@@ -55,9 +56,10 @@ public class ProductsController : ControllerBase
     }
 
     [HttpPost("create-prod")]
+    [Authorize]
     [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
     [ProducesResponseType(typeof(ProblemDetailsSwaggerResponse), (int)HttpStatusCode.BadGateway)]
-    public async Task<IActionResult> CreateProductBySpecificCategory([FromBody] CreateProductCommand command)
+    public async Task<IActionResult> CreateProductBySpecificCategory([FromForm] CreateProductCommand command)
     {
         var result = await _mediator.Send(command);
 

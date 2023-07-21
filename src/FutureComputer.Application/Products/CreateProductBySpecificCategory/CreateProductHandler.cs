@@ -11,16 +11,22 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, string
 {
     private readonly IRepository<Product> _repository;
     private readonly MappingProfile<CreateProductCommand, Product> _mapper;
+    private readonly ICurrentUserService _currentUser;
+    private readonly IUnitOfWork _unitOfWork;
     public CreateProductHandler(IRepository<Product> repository,
-    MappingProfile<CreateProductCommand, Product> mapper)
+    MappingProfile<CreateProductCommand, Product> mapper,
+    ICurrentUserService currentUser,
+    IUnitOfWork unitOfWork)
     {
         _repository = repository;
         _mapper = mapper;
+        _currentUser = currentUser;
+        _unitOfWork = unitOfWork;
     }
     public async Task<string> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {
         var filter = new SearchProductSpecification(request.Name);
-        var isExistedProduct = await _repository.AnyAsync(filter);
+        var isExistedProduct = await _repository.AnyAsync(filter, cancellationToken);
         if (isExistedProduct)
         {
             throw new Exception("Product name is already existed in this system!");
@@ -28,7 +34,7 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, string
         try
         {
             var extension = Path.GetExtension(request.ImageFile.FileName);
-            if (ValidateExtensionFile(extension))
+            if (!ValidateExtensionFile(extension))
             {
                 throw new CreateProductException("Error image file. Please choose again!!!");
             }
@@ -38,11 +44,22 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, string
 
             // Save file to local for back-up purpose
             var folderServerName = Path.Combine("Resources", CommonConstant.FOLDER_NAME);
-            // var localFile
+            var localFileName = string.Concat(request.Name.Replace(" ", ""), createdAt.Ticks, extension);
+            var staticPath = Path.Combine(Directory.GetCurrentDirectory(), folderServerName);
+            if (!Directory.Exists(staticPath))
+            {
+                Directory.CreateDirectory(staticPath);
+            }
+            var imagePath = Path.Combine(staticPath, localFileName);
+            await File.WriteAllBytesAsync(imagePath, binaryImage, cancellationToken);
 
             var product = _mapper.MapperHandler(request);
-            product.ImageUrls = "";
-            await _repository.AddAsync(product);
+            product.ImageUrls = imagePath;
+            product.CreatedBy = _currentUser.Id;
+            product.Created = createdAt;
+
+            await _repository.AddAsync(product, cancellationToken);
+            _unitOfWork.SaveChange(cancellationToken);
 
             return "Add product successfully";
         }
@@ -52,18 +69,16 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, string
         }
     }
 
-    private bool ValidateExtensionFile(string extension)
+    private static bool ValidateExtensionFile(string extension)
     {
         var lstExtensions = new string[] { ".jpeg", ".png", ".jpg", ".svg" };
         return lstExtensions.Contains(extension);
     }
 
-    private async Task<byte[]> ConvertImageToBinary(IFormFile image)
+    private static async Task<byte[]> ConvertImageToBinary(IFormFile image)
     {
-        using (var dataStream = new MemoryStream())
-        {
-            await image.CopyToAsync(dataStream);
-            return dataStream.ToArray();
-        }
+        using var dataStream = new MemoryStream();
+        await image.CopyToAsync(dataStream);
+        return dataStream.ToArray();
     }
 }

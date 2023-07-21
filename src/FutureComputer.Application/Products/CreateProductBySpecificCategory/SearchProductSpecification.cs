@@ -7,6 +7,6 @@ public class SearchProductSpecification : Specification<Product>
 {
     public SearchProductSpecification(string name)
     {
-
+        Query.Where(x => x.Name.ToUpper() == name.Replace(" ", "").ToUpper() && !x.IsDeleted);
     }
 }
