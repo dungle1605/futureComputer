@@ -54,7 +54,7 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, string
             await File.WriteAllBytesAsync(imagePath, binaryImage, cancellationToken);
 
             var product = _mapper.MapperHandler(request);
-            product.ImageUrls = imagePath;
+            product.ImageUrls = localFileName;
             product.CreatedBy = _currentUser.Id;
             product.Created = createdAt;
 
